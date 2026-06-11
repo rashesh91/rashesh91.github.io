@@ -732,7 +732,7 @@
     <!-- Project 1 -->
     <div class="project-card" data-animate>
       <div class="card-top">
-        <span class="project-num">01 / 03</span>
+        <span class="project-num">01 / 05</span>
         <a href="https://github.com/rashesh91/ml-inference-gitops" target="_blank" class="card-link">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           ml-inference-gitops
@@ -769,7 +769,7 @@
     <!-- Project 2 -->
     <div class="project-card" data-animate>
       <div class="card-top">
-        <span class="project-num">02 / 03</span>
+        <span class="project-num">02 / 05</span>
         <a href="https://github.com/rashesh91/ml-training-platform" target="_blank" class="card-link">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           ml-training-platform
@@ -807,7 +807,7 @@
     <!-- Project 3 -->
     <div class="project-card" data-animate>
       <div class="card-top">
-        <span class="project-num">03 / 03</span>
+        <span class="project-num">03 / 05</span>
         <a href="https://github.com/rashesh91/ai-platform-ops" target="_blank" class="card-link">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           ai-platform-ops
@@ -846,6 +846,85 @@
         <span class="badge">KEDA</span>
         <span class="badge">Argo Rollouts</span>
         <span class="badge">Prometheus</span>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-card" data-animate>
+      <div class="card-top">
+        <span class="project-num">04 / 05</span>
+        <a href="https://github.com/rashesh91/openstack-kolla-deploy" target="_blank" class="card-link">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          openstack-kolla-deploy
+        </a>
+      </div>
+      <h3 class="project-title">Production HA OpenStack — Kolla-Ansible</h3>
+      <p class="project-desc">
+        Full private cloud deployment: 3-node HA controller cluster (Keepalived VIP + HAProxy + MariaDB Galera + RabbitMQ), 4 compute nodes, 3-node Ceph storage backend. Automated deploy scripts with pre-flight checks and post-deploy resource provisioning.
+      </p>
+      <div class="pipeline">
+        <div class="pipeline-stage">
+          <span class="stage-box highlight">Bootstrap</span>
+          <span class="stage-arrow">→</span>
+          <span class="stage-box">Prechecks</span>
+          <span class="stage-arrow">→</span>
+          <span class="stage-box highlight">Deploy</span>
+          <span class="stage-arrow">→</span>
+          <span class="stage-box">Post-Deploy</span>
+          <span class="stage-arrow">→</span>
+          <span class="stage-box highlight">Horizon</span>
+        </div>
+      </div>
+      <div class="badges">
+        <span class="badge">OpenStack 2024.1</span>
+        <span class="badge">Kolla-Ansible</span>
+        <span class="badge">Ceph</span>
+        <span class="badge">HAProxy</span>
+        <span class="badge">Keepalived</span>
+        <span class="badge">Neutron OVS</span>
+        <span class="badge">Bash</span>
+      </div>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="project-card" data-animate>
+      <div class="card-top">
+        <span class="project-num">05 / 05</span>
+        <a href="https://github.com/rashesh91/openstack-ai-infra" target="_blank" class="card-link">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          openstack-ai-infra
+        </a>
+      </div>
+      <h3 class="project-title">GPU Cloud for AI/ML — OpenStack + Ironic</h3>
+      <p class="project-desc">
+        Extends OpenStack for self-service GPU compute. NVIDIA A100/T4 PCI passthrough via vfio-pci, Ironic bare-metal for workloads that can't tolerate hypervisor overhead, VLAN 200 training network with MTU 9000 for NCCL distributed training, and Heat templates for one-command GPU instance provisioning with CUDA + PyTorch.
+      </p>
+      <table class="features-table">
+        <tr>
+          <td><span class="feat-dot"></span>PCI Passthrough</td>
+          <td>NVIDIA A100 &amp; T4 via vfio-pci — full GPU memory, no hypervisor overhead</td>
+        </tr>
+        <tr>
+          <td><span class="feat-dot"></span>Ironic Bare Metal</td>
+          <td>iPXE boot provisioning for large-model training nodes</td>
+        </tr>
+        <tr>
+          <td><span class="feat-dot"></span>NCCL Training Net</td>
+          <td>VLAN 200, MTU 9000 jumbo frames — optimised for AllReduce collective ops</td>
+        </tr>
+        <tr>
+          <td><span class="feat-dot"></span>Heat Templates</td>
+          <td>One command: GPU instance + CUDA 12.4 + PyTorch cloud-init</td>
+        </tr>
+      </table>
+      <div class="badges">
+        <span class="badge">OpenStack</span>
+        <span class="badge">Ironic</span>
+        <span class="badge">NVIDIA GPU</span>
+        <span class="badge">VFIO</span>
+        <span class="badge">Heat</span>
+        <span class="badge">Ansible</span>
+        <span class="badge">CUDA</span>
       </div>
     </div>
 
@@ -891,6 +970,18 @@
         <span class="skill-tag">MLflow</span>
         <span class="skill-tag">MinIO</span>
         <span class="skill-tag">GPU Workloads</span>
+      </div>
+    </div>
+    <div class="skill-group" data-animate>
+      <div class="skill-group-title">OpenStack &amp; Cloud Infra</div>
+      <div class="skill-list">
+        <span class="skill-tag">OpenStack</span>
+        <span class="skill-tag">Kolla-Ansible</span>
+        <span class="skill-tag">Ceph</span>
+        <span class="skill-tag">Ironic</span>
+        <span class="skill-tag">Neutron</span>
+        <span class="skill-tag">GPU Passthrough</span>
+        <span class="skill-tag">Heat</span>
       </div>
     </div>
     <div class="skill-group" data-animate>
