@@ -158,6 +158,90 @@
     animation: fadeUp 0.6s ease forwards 0.6s;
   }
 
+  /* ── PROJECT SUMMARY TABLE ───────────────────────────────── */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 3.5rem;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .summary-table.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .summary-table tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  .summary-table tr:last-child { border-bottom: none; }
+
+  .summary-table tr:hover { background: var(--bg3); }
+
+  .summary-table td {
+    padding: 0.9rem 1rem;
+    vertical-align: middle;
+  }
+
+  .sum-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    width: 2.5rem;
+  }
+
+  .sum-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--white);
+    white-space: nowrap;
+    width: 14rem;
+  }
+
+  .sum-name a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .sum-name a:hover { color: var(--cyan); }
+
+  .sum-desc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  .sum-stack {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .sum-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--cyan);
+    background: var(--cyan-dim);
+    border: 1px solid var(--cyan-mid);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    margin-left: 0.3rem;
+  }
+
+  @media (max-width: 768px) {
+    .sum-stack { display: none; }
+    .sum-name { width: auto; }
+    .summary-table td { padding: 0.75rem 0.5rem; }
+  }
+
   .hero-meta {
     display: flex;
     align-items: center;
@@ -727,8 +811,8 @@
     Rashesh <span class="accent">Patel</span><span class="cursor"></span>
   </h1>
   <p class="hero-role">
-    Building production AI infrastructure — from model training pipelines<br>
-    to Kubernetes operators to SLO-backed serving systems.
+    6 projects across AI infrastructure, OpenStack private cloud, and VoIP telephony —<br>
+    from GPU clusters and LLM pipelines to SIP agents and production SLOs.
   </p>
   <div class="hero-meta">
     <span class="hero-meta-item">
@@ -769,6 +853,48 @@
     <h2 class="section-title">Projects</h2>
     <div class="section-line"></div>
   </div>
+
+  <!-- All-projects quick-reference -->
+  <table class="summary-table" data-animate>
+    <tbody>
+      <tr>
+        <td class="sum-num">01</td>
+        <td class="sum-name"><a href="https://github.com/rashesh91/ml-inference-gitops" target="_blank">Voice Agentic AI Platform</a></td>
+        <td class="sum-desc">Real-time voice assistant on Kubernetes — Browser mic → Whisper STT → Mistral 7B ReAct agent (weather, search, calc tools) → Edge TTS. GitOps with ArgoCD + vLLM GPU serving.</td>
+        <td class="sum-stack"><span class="sum-tag">Kubernetes</span><span class="sum-tag">ArgoCD</span><span class="sum-tag">vLLM</span></td>
+      </tr>
+      <tr>
+        <td class="sum-num">02</td>
+        <td class="sum-name"><a href="https://github.com/rashesh91/ml-training-platform" target="_blank">LLM Fine-Tuning Platform</a></td>
+        <td class="sum-desc">Self-service LoRA fine-tuning — upload dataset, get model auto-evaluated and promoted to MLflow. 5-step Argo Workflow DAG: ingest → preprocess → KubeRay train → eval → register.</td>
+        <td class="sum-stack"><span class="sum-tag">KubeRay</span><span class="sum-tag">MLflow</span><span class="sum-tag">Argo</span></td>
+      </tr>
+      <tr>
+        <td class="sum-num">03</td>
+        <td class="sum-name"><a href="https://github.com/rashesh91/ai-platform-ops" target="_blank">AI Platform Ops</a></td>
+        <td class="sum-desc">Production operations layer for Projects 1 &amp; 2 — custom kopf operator auto-deploys MLflow models, KEDA scales Ray workers to zero, Argo Rollouts canary gates, OTel traces, SLO burn-rate alerts.</td>
+        <td class="sum-stack"><span class="sum-tag">kopf</span><span class="sum-tag">KEDA</span><span class="sum-tag">OTel</span></td>
+      </tr>
+      <tr>
+        <td class="sum-num">04</td>
+        <td class="sum-name"><a href="https://github.com/rashesh91/openstack-kolla-deploy" target="_blank">HA OpenStack Deployment</a></td>
+        <td class="sum-desc">Production private cloud with Kolla-Ansible — 3-node HA controller cluster (Keepalived VIP + HAProxy + Galera + RabbitMQ), 4 compute nodes, 3-node Ceph storage. Automated deploy &amp; health scripts.</td>
+        <td class="sum-stack"><span class="sum-tag">OpenStack</span><span class="sum-tag">Ceph</span><span class="sum-tag">Kolla</span></td>
+      </tr>
+      <tr>
+        <td class="sum-num">05</td>
+        <td class="sum-name"><a href="https://github.com/rashesh91/openstack-ai-infra" target="_blank">GPU Cloud for AI/ML</a></td>
+        <td class="sum-desc">GPU-enabled OpenStack — NVIDIA A100/T4 PCI passthrough via vfio-pci, Ironic bare-metal provisioning, VLAN 200 training network (MTU 9000 for NCCL), Heat templates for self-service CUDA instances.</td>
+        <td class="sum-stack"><span class="sum-tag">Ironic</span><span class="sum-tag">VFIO</span><span class="sum-tag">Heat</span></td>
+      </tr>
+      <tr>
+        <td class="sum-num">06</td>
+        <td class="sum-name"><a href="https://github.com/rashesh91/freeswitch-ai-agent" target="_blank">AI Phone Agent</a></td>
+        <td class="sum-desc">SIP phone calls handled by an AI agent — FreeSWITCH mod_audio_stream pipes RTP to Python bridge in real time, WebRTC VAD detects speech end, same Whisper→Mistral→TTS pipeline answers the call.</td>
+        <td class="sum-stack"><span class="sum-tag">FreeSWITCH</span><span class="sum-tag">SIP</span><span class="sum-tag">VAD</span></td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="projects-grid">
 
